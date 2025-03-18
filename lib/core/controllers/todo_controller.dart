@@ -2,7 +2,11 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:delivery_factory_app/domain/models/todo.dart';
 
+import '../logging/index.dart';
+
 class TodoController extends GetxController {
+  final Logger _logger = AppLogger().getLoggerForClass(TodoController);
+
   // Observable lists
   final RxList<Todo> todos = <Todo>[].obs;
 
@@ -42,6 +46,7 @@ class TodoController extends GetxController {
 
   void removeTodo(String id) {
     todos.removeWhere((todo) => todo.id == id);
+    _logger.w('Removed todo with id: $id');
   }
 
   void setFilter(String filter) {
