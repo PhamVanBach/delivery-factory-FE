@@ -28,46 +28,53 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        // This SafeArea is for the screen content
-        bottom:
-            false, // Don't add bottom padding since we'll handle that in the navigation bar
-        child: _screens[_selectedIndex],
-      ),
-      bottomNavigationBar: SafeArea(
-        // This SafeArea is specifically for the navigation bar
-        top: false, // We only need bottom padding for the navigation bar
-        child: Container(
-          height: 70,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 1,
-                blurRadius: 10,
-                offset: const Offset(0, -3),
+      extendBody: true,
+      body: Stack(
+        children: [
+          _screens.elementAt(_selectedIndex),
+          Positioned(
+            bottom: 32,
+            left: 16,
+            right: 16,
+            child: Container(
+              height: 66,
+              margin: const EdgeInsets.symmetric(horizontal: 80),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 1)],
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(40),
+                  topRight: Radius.circular(40),
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40),
+                ),
               ),
-            ],
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(20),
-              topRight: Radius.circular(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _buildNavItem(
+                    0,
+                    Icons.home_filled,
+                    Icons.home_outlined,
+                    'Home',
+                  ),
+                  _buildNavItem(
+                    1,
+                    Icons.list_alt,
+                    Icons.list_alt_outlined,
+                    'Orders',
+                  ),
+                  _buildNavItem(
+                    2,
+                    Icons.person,
+                    Icons.person_outline,
+                    'Profile',
+                  ),
+                ],
+              ),
             ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildNavItem(0, Icons.home_filled, Icons.home_outlined, 'Home'),
-              _buildNavItem(
-                1,
-                Icons.list_alt,
-                Icons.list_alt_outlined,
-                'Orders',
-              ),
-              _buildNavItem(2, Icons.person, Icons.person_outline, 'Profile'),
-            ],
-          ),
-        ),
+        ],
       ),
     );
   }
@@ -84,13 +91,13 @@ class _MainScreenState extends State<MainScreen> {
       onTap: () => _onItemTapped(index),
       behavior: HitTestBehavior.opaque,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         decoration: BoxDecoration(
           color:
               isSelected
                   ? Theme.of(context).primaryColor.withOpacity(0.1)
                   : Colors.transparent,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(32),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -99,16 +106,6 @@ class _MainScreenState extends State<MainScreen> {
               isSelected ? selectedIcon : unselectedIcon,
               color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
               size: 24,
-            ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
-                color:
-                    isSelected ? Theme.of(context).primaryColor : Colors.grey,
-                fontSize: isSelected ? 12 : 11,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-              ),
             ),
           ],
         ),
