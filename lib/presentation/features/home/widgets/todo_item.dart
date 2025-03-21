@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:delivery_factory_app/domain/models/todo.dart';
-import 'package:delivery_factory_app/core/controllers/todo_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/todo_controller.dart';
 
 class TodoItem extends StatelessWidget {
   final Todo todo;

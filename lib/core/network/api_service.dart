@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:delivery_factory_app/core/logging/index.dart';
-import 'package:delivery_factory_app/core/config/api_config.dart';
-import 'package:delivery_factory_app/core/services/token_service.dart';
+import 'package:delivery_factory_app/config/api_config.dart';
+import 'package:delivery_factory_app/data/services/token_service.dart';
 import 'package:delivery_factory_app/core/network/auth_interceptor.dart';
 
 class ApiService {

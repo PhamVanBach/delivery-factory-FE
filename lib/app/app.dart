@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:delivery_factory_app/core/controllers/counter_controller.dart';
-import 'package:delivery_factory_app/core/controllers/todo_controller.dart';
-import 'package:delivery_factory_app/core/controllers/order_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/counter_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/todo_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/order_controller.dart';
 import 'package:delivery_factory_app/core/logging/index.dart';
 import 'package:delivery_factory_app/screens/orders/details/order_details_page.dart';
 import 'package:delivery_factory_app/screens/profile/settings/settings_page.dart';

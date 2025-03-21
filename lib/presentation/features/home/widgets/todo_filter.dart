@@ -1,7 +1,7 @@
 // lib/presentation/features/home/widgets/todo_filter.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:delivery_factory_app/core/controllers/todo_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/todo_controller.dart';
 
 class TodoFilter extends GetView<TodoController> {
   @override

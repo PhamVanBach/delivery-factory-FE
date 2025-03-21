@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:uuid/uuid.dart';
 import 'package:delivery_factory_app/domain/models/todo.dart';
 
-import '../logging/index.dart';
+import '../../core/logging/index.dart';
 
 class TodoController extends GetxController {
   final Logger _logger = AppLogger().getLoggerForClass(TodoController);

@@ -1,11 +1,11 @@
 // lib/app/bindings/initial_binding.dart
 import 'package:get/get.dart';
-import 'package:delivery_factory_app/core/controllers/counter_controller.dart';
-import 'package:delivery_factory_app/core/controllers/todo_controller.dart';
-import 'package:delivery_factory_app/core/controllers/order_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/counter_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/todo_controller.dart';
+import 'package:delivery_factory_app/presentation/controllers/order_controller.dart';
 import 'package:delivery_factory_app/core/network/api_service.dart';
 import 'package:delivery_factory_app/domain/repositories/order_repository.dart';
-import 'package:delivery_factory_app/core/services/token_service.dart';
+import 'package:delivery_factory_app/data/services/token_service.dart';
 
 class InitialBinding extends Bindings {
   @override
